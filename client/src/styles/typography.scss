@@ -1,0 +1,26 @@
+$typography-config: mat.define-typography-config();
+
+/*
+
+display-4
+display-3
+display-2
+display-1
+headline
+title
+subheading-2
+subheading-1
+body-2
+body-1
+caption
+
+
+$typography-config: mat.get-typography-config($theme);
+
+mat.font-size($typography-config, 'body-1');
+mat.font-family($typography-config, 'body-1');
+mat.font-weight($typography-config, 'body-1');
+mat.line-height($typography-config, 'body-1');
+mat.letter-spacing($typography-config, 'body-1');
+
+*/

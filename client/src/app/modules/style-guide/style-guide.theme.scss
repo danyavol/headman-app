@@ -1,0 +1,5 @@
+@use './containers/style-guide-shell/style-guide-shell.theme.scss' as style-guide-shell;
+
+@mixin theme($theme) {
+    @include style-guide-shell.theme($theme);
+}
