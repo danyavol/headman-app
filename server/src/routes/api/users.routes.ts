@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { db } from "../../database/database";
+import { db } from "@database/database";
 
 const users = Router();
 export default users;

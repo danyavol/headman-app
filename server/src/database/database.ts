@@ -1,14 +1,17 @@
 import mongoose, { CallbackWithoutResult, ConnectOptions } from 'mongoose';
 import { Model } from 'mongoose';
+import { IToken, TokenSchema } from './schemas/token.schema';
 import { UserSchema, IUser } from './schemas/user.schema';
 
 
 export interface IDatabase {
-    User: Model<IUser>
+    User: Model<IUser>,
+    Token: Model<IToken>
 }
 
 export const db: IDatabase = {
-    User: mongoose.model<IUser>('User', UserSchema)
+    User: mongoose.model<IUser>('User', UserSchema),
+    Token: mongoose.model<IToken>('Token', TokenSchema)
 };
 
 
