@@ -29,7 +29,7 @@ auth.post('/register', async (req, res) => {
 });
 
 auth.post('/login', async (req, res) => {
-    const { password, username } = req.body;
+    const { password, username, saveMe } = req.body;
     try {
         const user = await db.User.findOne({username});
         if (!user) {
@@ -41,11 +41,10 @@ auth.post('/login', async (req, res) => {
             return res.status(400).json({message: 'Неверный пароль'});
         }
 
-        const token = createToken(req, user.userId, defaultTokenLife);
+        const token = createToken(req, user.userId, saveMe ? null : defaultTokenLife);
         await token.save();
 
         res.json({token: token.token});
-        
     } catch (err) {
         handleError(res, err);
     }

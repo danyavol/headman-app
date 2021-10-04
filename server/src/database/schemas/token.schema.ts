@@ -18,7 +18,6 @@ export const TokenSchema = new Schema<IToken>({
     },
     userId: {
         type: String,
-        ref: 'User.userId',
         required: true
     },
     createdAt: {

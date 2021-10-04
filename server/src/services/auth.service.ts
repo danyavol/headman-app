@@ -1,9 +1,9 @@
-import { NextFunction, Request, Response } from "express";
 import { db } from "@database/database";
+import { NextFunction, Request, Response } from "express";
 
 
 export function createToken(req: Request, userId: string, maxAge: number) {
-    const tokenMaxAge = new Date(Date.now() + maxAge);
+    const tokenMaxAge = maxAge ? new Date(Date.now() + maxAge) : null;
     return new db.Token({
         userId: userId,
         maxAge: tokenMaxAge,
