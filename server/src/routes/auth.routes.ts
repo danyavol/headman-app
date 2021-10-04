@@ -3,7 +3,7 @@ import { WEEK } from "@constants/time.constant";
 import { db } from "@database/database";
 import { Crypto } from "@services/crypto.service";
 import { handleError } from "@services/error-handle.service";
-import { createToken } from "@services/token.service";
+import { createToken } from "@services/auth.service";
 
 const auth = Router();
 export default auth;
@@ -34,13 +34,11 @@ auth.post('/login', async (req, res) => {
         const user = await db.User.findOne({username});
         if (!user) {
             // Username invalid
-            res.statusCode = 400;
-            return res.json({message: 'Неверное имя пользователя'});
+            return res.status(400).json({message: 'Неверное имя пользователя'});
         }
         if (!Crypto.compare(password, user.password)) {
             // Password invalid
-            res.statusCode = 400;
-            return res.json({message: 'Неверный пароль'});
+            return res.status(400).json({message: 'Неверный пароль'});
         }
 
         const token = createToken(req, user.userId, defaultTokenLife);

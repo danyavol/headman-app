@@ -6,6 +6,6 @@ export default users;
 
 
 users.get('/', async (req, res) => {
-    const user = await db.User.find().exec();
+    const user = await db.User.find();
     res.json(user);
 });

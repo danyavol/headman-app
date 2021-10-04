@@ -26,8 +26,7 @@ export function handleError(res: Response, error: any = {}): void {
     }
     else {
         console.error('Unknown error', error);
-        res.statusCode = 500;
-        res.json( {code: AppErrorCodes.UnknownError, error} );
+        res.status(500).json( {code: AppErrorCodes.UnknownError, error} );
     }
 
 }
@@ -36,7 +35,7 @@ export function handleError(res: Response, error: any = {}): void {
 
 function handleMongoServerError(res: Response, error: any): AppError {
     if (error.code === 11000) {
-        res.statusCode = 400;
+        res.status(400);
         const errors = [];
         for (let key in error.keyPattern) {
             errors.push({
@@ -52,7 +51,7 @@ function handleMongoServerError(res: Response, error: any): AppError {
 
 function handleMongooseError(res: Response, error: MongooseError): AppError {
     if (error instanceof MongooseError.ValidationError) {
-        res.statusCode = 400;
+        res.status(400);
         const errors = [];
         for (let key in error.errors) {
             const err = error.errors[key] as MongooseError.ValidatorError;
