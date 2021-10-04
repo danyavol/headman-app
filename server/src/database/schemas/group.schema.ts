@@ -17,7 +17,7 @@ export const GroupSchema = new Schema<IGroup>({
     name: {
         type: String,
         maxlength: SchemaValidation.maxLength(50),
-        required: true
+        required: SchemaValidation.required()
     },
     members: [{
         type: String,

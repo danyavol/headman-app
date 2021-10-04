@@ -1,3 +1,4 @@
+import { SchemaValidation } from '@services/schema-validation.service';
 import { Schema } from 'mongoose';
 import { v4 as uuid } from 'uuid';
 
@@ -36,39 +37,39 @@ export const ScheduleSchema = new Schema<ISchedule>({
     },
     semesterId: {
         type: String,
-        required: true
+        required: SchemaValidation.required()
     },
     lessons: [{
         lessonId: {
             type: String,
             default: uuid,
-            required: true
+            required: SchemaValidation.required()
         },
         lessonNameId: {
             type: String,
-            required: true
+            required: SchemaValidation.required()
         },
         lessonTypeId: {
             type: String,
-            required: true
+            required: SchemaValidation.required()
         },
         lessonTimeId: {
             type: String,
-            required: true
+            required: SchemaValidation.required()
         },
         date: {
             type: Date,
-            required: true
+            required: SchemaValidation.required()
         },
         absences: [{
             studentId: {
                 type: String,
-                required: true
+                required: SchemaValidation.required()
             },
             absenceCode: {
                 type: Number,
                 default: AbsenceCode.NoInfo,
-                required: true
+                required: SchemaValidation.required()
             }
         }]
     }]

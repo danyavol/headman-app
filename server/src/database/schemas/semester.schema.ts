@@ -15,14 +15,14 @@ export interface IStudent {
     studentId: string,
     firstName: string,
     lastName: string,
-    patronymic: string
+    patronymic?: string
 }
 
 export interface ILessonName {
     lessonNameId: string,
     shortName: string,
-    name: string,
-    teachers: string[]
+    name?: string,
+    teachers?: string[]
 }
 
 export interface ILessonTime {
@@ -39,28 +39,28 @@ export const SemesterSchema = new Schema<ISemester>({
     },
     groupId: {
         type: String,
-        required: true
+        required: SchemaValidation.required()
     },
     name: {
         type: String,
         maxlength: SchemaValidation.maxLength(50),
-        required: true
+        required: SchemaValidation.required()
     },
     students: [{
         studentId: {
             type: String,
             default: uuid,
-            required: true
+            required: SchemaValidation.required()
         },
         firstName: {
             type: String,
             maxlength: SchemaValidation.maxLength(50),
-            required: true
+            required: SchemaValidation.required()
         },
         lastName: {
             type: String,
             maxlength: SchemaValidation.maxLength(50),
-            required: true
+            required: SchemaValidation.required()
         },
         patronymic: {
             type: String,
@@ -76,7 +76,7 @@ export const SemesterSchema = new Schema<ISemester>({
         shortName: {
             type: String,
             maxlength: SchemaValidation.maxLength(12),
-            required: true
+            required: SchemaValidation.required()
         },
         name: {
             type: String,
@@ -96,12 +96,12 @@ export const SemesterSchema = new Schema<ISemester>({
         start: {
             type: String,
             match: SchemaValidation.time(),
-            required: true
+            required: SchemaValidation.required()
         },
         end: {
             type: String,
             match: SchemaValidation.time(),
-            require: true
+            require: SchemaValidation.required()
         }
     }]
 });

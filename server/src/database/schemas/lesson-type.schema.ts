@@ -5,7 +5,8 @@ import { v4 as uuid } from 'uuid';
 export interface ILessonType {
     lessonTypeId: string,
     shortName: string,
-    name: string
+    name: string,
+    sortIndex: number
 }
 
 export const LessonTypeSchema = new Schema<ILessonType>({
@@ -17,11 +18,15 @@ export const LessonTypeSchema = new Schema<ILessonType>({
     shortName: {
         type: String,
         maxlength: SchemaValidation.maxLength(4),
-        required: true
+        required: SchemaValidation.required()
     },
     name: {
         type: String,
         maxlength: SchemaValidation.maxLength(50),
-        required: true
+        required: SchemaValidation.required()
     },
+    sortIndex: {
+        type: Number,
+        required: SchemaValidation.required()
+    }
 });

@@ -21,13 +21,13 @@ export const UserSchema = new Schema<IUser>({
         maxlength: SchemaValidation.maxLength(16),
         match: [USERNAME_REGEXP, 'Маленькие латинские буквы или цифры, первый символ не цифра'],
         unique: true,
-        required: true
+        required: SchemaValidation.required()
     },
     password: { 
         type: String, 
         minlength: SchemaValidation.minLength(6),
         maxlength: SchemaValidation.maxLength(50),
         match: [PASSWORD_REGEXP, 'Минимум 1 большая буква, маленькая и цифра'],
-        required: true 
+        required: SchemaValidation.required() 
     },
 });
