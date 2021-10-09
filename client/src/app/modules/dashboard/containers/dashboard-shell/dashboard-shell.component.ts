@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardService } from '@modules/dashboard/services/dashboard.service';
 
 @Component({
     selector: 'app-dashboard-shell',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardShellComponent implements OnInit {
 
-    constructor() { }
+    constructor(private dService: DashboardService) { }
 
     ngOnInit(): void {
+        this.dService.getUsers().subscribe();
     }
 
 }

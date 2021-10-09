@@ -4,11 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedModule } from './shared/shared.module';
-import { StyleGuideModule } from './modules/style-guide/style-guide.module';
-import { MatIconModule } from '@angular/material/icon';
-import { AuthLayoutComponent } from './core/auth-layout/auth-layout.component';
-import { UnAuthLayoutComponent } from './core/unauth-layout/unauth-layout.component';
+import { SharedModule } from '@shared/shared.module';
+
+import { AuthLayoutComponent } from '@core/auth-layout/auth-layout.component';
+import { UnAuthLayoutComponent } from '@core/unauth-layout/unauth-layout.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpAuthInterceptor } from '@core/interceptors/http-auth.interceptor';
 
 @NgModule({
     declarations: [
@@ -20,11 +21,12 @@ import { UnAuthLayoutComponent } from './core/unauth-layout/unauth-layout.compon
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
+        HttpClientModule,
         SharedModule,
-        MatIconModule,
-        StyleGuideModule,
     ],
-    providers: [],
+    providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: HttpAuthInterceptor, multi: true },
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

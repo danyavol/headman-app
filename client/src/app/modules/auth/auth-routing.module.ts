@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthShellComponent } from './containers/auth-shell/auth-shell.component';
+import { LoginShellComponent } from './containers/login-shell/login-shell.component';
 
 const routes: Routes = [
     {
-        path: '',
-        component: AuthShellComponent
-    }
+        path: 'login',
+        component: LoginShellComponent
+    },
+    { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({

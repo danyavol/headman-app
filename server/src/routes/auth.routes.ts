@@ -1,14 +1,15 @@
 import { Router } from "express";
-import { WEEK } from "@constants/time.constant";
+
 import { db } from "@database/database";
 import { Crypto } from "@services/crypto.service";
 import { handleError } from "@services/error-handle.service";
 import { createToken } from "@services/auth.service";
+import { MONTH } from "@constants/time.constant";
 
 const auth = Router();
 export default auth;
 
-const defaultTokenLife = WEEK;
+
 
 
 auth.post('/register', async (req, res) => {
@@ -19,10 +20,9 @@ auth.post('/register', async (req, res) => {
         newUser.password = Crypto.encrypt(newUser.password);
         await newUser.save({ validateBeforeSave: false });
 
-        const token = createToken(req, newUser.userId, defaultTokenLife);
-        await token.save();
+        await createToken(req, res, newUser.userId);
 
-        res.json({token: token.token});
+        res.sendStatus(204);
     } catch (err) {
         handleError(res, err);
     }
@@ -41,10 +41,9 @@ auth.post('/login', async (req, res) => {
             return res.status(400).json({message: 'Неверный пароль'});
         }
 
-        const token = createToken(req, user.userId, saveMe ? null : defaultTokenLife);
-        await token.save();
+        await createToken(req, res, user.userId, saveMe ? MONTH*12 : null);
 
-        res.json({token: token.token});
+        res.sendStatus(204);
     } catch (err) {
         handleError(res, err);
     }

@@ -1,20 +1,24 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { SharedModule } from '@shared/shared.module';
 import { AuthRoutingModule } from './auth-routing.module';
-import { AuthShellComponent } from './containers/auth-shell/auth-shell.component';
+import { LoginShellComponent } from './containers/login-shell/login-shell.component';
+import { AuthApiService } from './service/auth-api.service';
 
 
 
 @NgModule({
     declarations: [
-        AuthShellComponent
+        LoginShellComponent
     ],
     imports: [
         CommonModule,
-        AuthRoutingModule
+        AuthRoutingModule,
+        SharedModule
     ],
     exports: [
-        AuthShellComponent
-    ]
+        LoginShellComponent
+    ],
+    providers: [AuthApiService]
 })
 export class AuthModule { }

@@ -1,7 +1,10 @@
 @use '~@angular/material' as mat;
 
-$primary-default-palette: mat.define-palette(mat.$blue-grey-palette, 500);
-$accent-default-palette: mat.define-palette(mat.$amber-palette, 400);
+// $primary-default-palette: mat.define-palette(mat.$blue-grey-palette, 500);
+// $accent-default-palette: mat.define-palette(mat.$amber-palette, 400);
+
+$primary-default-palette: mat.define-palette(mat.$deep-purple-palette);
+$accent-default-palette: mat.define-palette(mat.$amber-palette);
 
 
 $app-default-theme: mat.define-light-theme((

@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -6,11 +6,15 @@ import { catchError } from 'rxjs/operators';
 import { environment } from '@environment';
 
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class HttpService {
     private apiUrl: string = environment.apiUrl;
 
-    constructor(private http: HttpClient) {}
+    constructor(
+        private http: HttpClient,
+    ) {}
 
     public get(path: string, queryParams: any = null, options: any = this.getDefaultRequestOptions()): Observable<any> {
         const fullPath: string = this.getPathWithData(path, queryParams);

@@ -19,16 +19,14 @@
 
 
 @mixin custom-component-themes($theme) {
-    $color-config: mat.get-color-config($theme);
-    $primary-palette: map.get($color-config, 'primary');
+    $background: map.get($theme, background);
 
     // Insert component mixins here
     @include style-guide.theme($theme);
 
     .main-wrapper {
         height: 100%;
-        background-color: map.get($primary-palette, 50);
-        color: map.get($primary-palette, contrast, 50);
+        background-color: map.get($background, background);
     }
 }
 
