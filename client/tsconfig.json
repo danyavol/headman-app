@@ -24,6 +24,7 @@
             "@modules/*": [ "src/app/modules/*" ],
             "@shared/*": [ "src/app/shared/*" ],
             "src/*": [ "src/*" ],
+            "@environment": [ "src/environments/environment" ]
         },
         "strictNullChecks": false,
         "noImplicitAny": false

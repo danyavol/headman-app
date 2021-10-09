@@ -3,14 +3,14 @@ import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, RouterStateSnaps
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class AuthGuard implements CanActivate, CanActivateChild {
+export class UnAuthGuard implements CanActivate, CanActivateChild {
     
     canActivate(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
     ): Observable<boolean> | boolean {
-        // TODO: Add auth check
-        return false;
+        // TODO: Add unauth check
+        return true;
     };
 
     canActivateChild(

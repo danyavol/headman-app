@@ -8,11 +8,13 @@ import { SharedModule } from './shared/shared.module';
 import { StyleGuideModule } from './modules/style-guide/style-guide.module';
 import { MatIconModule } from '@angular/material/icon';
 import { AuthLayoutComponent } from './core/auth-layout/auth-layout.component';
+import { UnAuthLayoutComponent } from './core/unauth-layout/unauth-layout.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        AuthLayoutComponent
+        AuthLayoutComponent,
+        UnAuthLayoutComponent
     ],
     imports: [
         BrowserModule,
