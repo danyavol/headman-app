@@ -6,6 +6,8 @@ import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/mat
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ValidationErrorComponent } from './components/validation-error/validation-error.component';
+import { CommonModule } from '@angular/common';
 
 const NG_MATERIALS = [
     MatButtonModule,
@@ -21,14 +23,19 @@ const NG_MODULES = [
 ];
 
 @NgModule({
-    declarations: [],
+    declarations: [
+    ValidationErrorComponent
+  ],
     imports: [
+        CommonModule,
         ...NG_MATERIALS,
         ...NG_MODULES,
     ],
     exports: [
+        CommonModule,
         ...NG_MATERIALS,
         ...NG_MODULES,
+        ValidationErrorComponent,
     ],
     providers: [
         { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline', floatLabel: 'auto' } }

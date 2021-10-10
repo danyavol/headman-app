@@ -1,0 +1,21 @@
+mat-form-field.mat-form-field {
+
+    .mat-form-field-wrapper {
+        padding: 0;
+        margin: 0;
+    }
+
+    .mat-form-field-subscript-wrapper {
+        position: static;
+        font-size: map.get($typography-config, caption, font-size);
+        margin-top: 0;
+    }
+
+    .mat-error {
+        margin-top: 5px;
+    }
+
+    &.mat-focused .mat-form-field-required-marker {
+        color: map.get($error-colors, 500);
+    }
+}

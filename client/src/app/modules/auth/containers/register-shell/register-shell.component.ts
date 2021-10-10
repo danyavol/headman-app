@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { AuthenticationService } from '@core/services/authentication.service';
+import { ValidationService } from '@core/services/validation.service';
 import { AuthApiService } from '@modules/auth/service/auth-api.service';
 
 @Component({
-    selector: 'login-shell',
-    templateUrl: './login-shell.component.html',
-    styleUrls: ['./login-shell.component.scss']
+    selector: 'app-register-shell',
+    templateUrl: './register-shell.component.html',
+    styleUrls: ['./register-shell.component.scss']
 })
-export class LoginShellComponent {
+export class RegisterShellComponent {
 
     public form = new FormGroup({
-        username: new FormControl('', Validators.required),
-        password: new FormControl('', Validators.required),
+        username: new FormControl('', ValidationService.usernameValidators),
+        password: new FormControl('', ValidationService.passwordValidators),
         saveMe: new FormControl(false)
     });
 
@@ -25,7 +26,7 @@ export class LoginShellComponent {
         this.form.markAllAsTouched();
         if (this.form.invalid) return;
 
-        this.authApi.login(this.form.value).subscribe(
+        this.authApi.register(this.form.value).subscribe(
             () => {
                 this.authService.logIn();
             }

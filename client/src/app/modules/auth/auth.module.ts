@@ -4,12 +4,14 @@ import { SharedModule } from '@shared/shared.module';
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginShellComponent } from './containers/login-shell/login-shell.component';
 import { AuthApiService } from './service/auth-api.service';
+import { RegisterShellComponent } from './containers/register-shell/register-shell.component';
 
 
 
 @NgModule({
     declarations: [
-        LoginShellComponent
+        LoginShellComponent,
+        RegisterShellComponent,
     ],
     imports: [
         CommonModule,
@@ -17,7 +19,8 @@ import { AuthApiService } from './service/auth-api.service';
         SharedModule
     ],
     exports: [
-        LoginShellComponent
+        LoginShellComponent,
+        RegisterShellComponent,
     ],
     providers: [AuthApiService]
 })

@@ -1,0 +1,18 @@
+@use 'sass:map';
+@import 'src/styles/variables.scss';
+
+.wrapper {
+    height: 100%;
+
+    > .card {
+        min-height: 500px;
+
+        @media screen and (max-width: map.get($breakpoints, sm)) {
+            height: 100%;
+        }
+
+        .logo {
+            margin-bottom: 36px;
+        }
+    }
+}

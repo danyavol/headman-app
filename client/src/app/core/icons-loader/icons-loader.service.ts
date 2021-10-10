@@ -10,7 +10,7 @@ export class IconLoaderService {
     constructor(
         private matIconRegistry: MatIconRegistry,
         private domSanitizer: DomSanitizer
-    ) { }
+    ) { console.log(1) }
 
     public registerIcons(): void {
         this.loadIcons(this.iconEnum, 'assets/icons');

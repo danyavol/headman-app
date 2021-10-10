@@ -2,7 +2,9 @@
 @use '~@angular/material' as mat;
 @use '/src/app/modules/style-guide/style-guide.theme.scss' as style-guide;
 
-@import './typography.scss';
+@import './variables.scss';
+@import './fonts/fonts.scss';
+@import './components/index.scss';
 
 @include mat.core($typography-config);
 

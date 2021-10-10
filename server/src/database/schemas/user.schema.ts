@@ -19,7 +19,7 @@ export const UserSchema = new Schema<IUser>({
         type: String,
         minlength: SchemaValidation.minLength(4),
         maxlength: SchemaValidation.maxLength(16),
-        match: [USERNAME_REGEXP, 'Маленькие латинские буквы или цифры, первый символ не цифра'],
+        match: [USERNAME_REGEXP, 'Маленькие латинские буквы или цифры'],
         unique: true,
         required: SchemaValidation.required()
     },
