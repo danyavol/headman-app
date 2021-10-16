@@ -1,0 +1,15 @@
+@use 'sass:map';
+@use '~@angular/material' as mat;
+
+@import './variables.scss';
+@import './fonts/fonts.scss';
+@import './components/index.scss';
+
+@include mat.core($typography-config);
+@include mat.all-component-themes($app-theme);
+
+
+
+.main-wrapper {
+    height: 100%;
+}

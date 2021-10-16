@@ -12,6 +12,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpAuthInterceptor } from '@core/interceptors/http-auth.interceptor';
 import { IconLoaderService } from '@core/icons-loader/icons-loader.service';
 import { LogotypeComponent } from './core/components/logotype/logotype.component';
+import { SidebarComponent } from './core/components/sidebar/sidebar.component';
+import { TopbarComponent } from './core/components/topbar/topbar.component';
 
 @NgModule({
     declarations: [
@@ -19,6 +21,8 @@ import { LogotypeComponent } from './core/components/logotype/logotype.component
         AuthLayoutComponent,
         UnAuthLayoutComponent,
         LogotypeComponent,
+        SidebarComponent,
+        TopbarComponent,
     ],
     imports: [
         BrowserModule,

@@ -1,3 +1,17 @@
-<p>auth-layout works!</p>
+<div class="topbar">
+    <app-topbar [sidenav]="sidenav"></app-topbar>
+</div>
 
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+
+    <mat-sidenav class="sidebar" #sidenav [opened]="opened" [mode]="mode">
+        <app-sidebar></app-sidebar>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <div class="main-container">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
