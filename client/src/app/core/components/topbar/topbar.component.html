@@ -1,7 +1,46 @@
 <mat-toolbar>
-    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
-        <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
-        <mat-icon *ngIf="sidenav.opened">close</mat-icon>
-    </button>
-    Application header
+
+    <div class="topbar-group">
+        <div *ngIf="isMobileView">
+            <button mat-icon-button color="primary" *ngIf="!isSidenavOpened" (click)="sidenav.open()">
+                <mat-icon >menu</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" *ngIf="isSidenavOpened" (click)="sidenav.close()">
+                <mat-icon >close</mat-icon>
+            </button>
+        </div>
+
+        <h3 *ngIf="isMobileView">Заметки</h3>
+
+        <div class="form-group group-selection-container" *ngIf="!isMobileView">
+            <mat-form-field class="compact">
+                <mat-label>Активная группа</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let topping of ['1820', '1821']" [value]="topping">{{topping}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+    
+            <mat-form-field class="compact">
+                <mat-label>Активный семестр</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let topping of ['4', '5', '6']" [value]="topping">{{topping}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        
+    </div>
+
+    <div class="topbar-group">
+        <button mat-icon-button color="primary">
+            <mat-icon>settings</mat-icon>
+        </button>
+        <button mat-stroked-button color="primary" *ngIf="!isMobileView">
+            <mat-icon>exit_to_app</mat-icon>
+            Выйти
+        </button>
+        <button mat-icon-button color="primary" *ngIf="isMobileView">
+            <mat-icon>exit_to_app</mat-icon>
+        </button>
+    </div>
+
 </mat-toolbar>

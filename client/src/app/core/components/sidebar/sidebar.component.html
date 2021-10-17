@@ -1,4 +1,26 @@
+
 <div class="sidebar" fxLayout="column">
+    <ng-container *ngIf="isMobileView">
+        <div class="form-group column active-group">
+            <mat-form-field class="compact">
+                <mat-label>Активная группа</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let topping of ['1820', '1821']" [value]="topping">{{topping}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+    
+            <mat-form-field class="compact">
+                <mat-label>Активный семестр</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let topping of ['4', '5', '6']" [value]="topping">{{topping}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    
+        <mat-divider></mat-divider>
+    </ng-container>
+    
+
     <button mat-button class="menu-button">
         <mat-icon class="menu-icon">assignment</mat-icon>
         Расписание
@@ -22,8 +44,14 @@
 
     <mat-divider></mat-divider>
 
+
+    <button mat-button class="menu-button">
+        <mat-icon class="menu-icon">settings</mat-icon>
+        Настройки
+    </button>
+
     <button mat-button class="menu-button" routerLink="/style-guide">
-        <mat-icon class="menu-icon">help</mat-icon>
+        <mat-icon class="menu-icon">style</mat-icon>
         Style Guide
     </button>
 </div>

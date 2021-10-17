@@ -1,5 +1,20 @@
 @import '/src/styles/variables.scss';
 
-// .test {
-//     color: map-get($success-colors, 300);
-// }
+.container {
+    padding: 30px;
+}
+
+.section {
+    margin-bottom: 16px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    &.column {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

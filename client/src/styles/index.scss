@@ -9,7 +9,8 @@
 @include mat.all-component-themes($app-theme);
 
 
-
-.main-wrapper {
+html, body {
     height: 100%;
+    background-color: $main-bg;
+    margin: 0;
 }

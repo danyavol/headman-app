@@ -4,8 +4,8 @@
 
 <mat-sidenav-container>
 
-    <mat-sidenav class="sidebar" #sidenav [opened]="opened" [mode]="mode">
-        <app-sidebar></app-sidebar>
+    <mat-sidenav class="sidebar" #sidenav [opened]="opened" [mode]="mode" [autoFocus]="false">
+        <app-sidebar [sidenav]="sidenav"></app-sidebar>
     </mat-sidenav>
 
     <mat-sidenav-content>
